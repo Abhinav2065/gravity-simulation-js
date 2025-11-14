@@ -1,0 +1,43 @@
+
+* {
+  font-family: "Gochi Hand", cursive;
+  background-color: #003049;
+  color: #EFE9F4;
+}
+
+
+
+
+
+p {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.hero h1 {
+    font-size: 50px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70vh;
+}
+
+
+.select-simulations-hero h3 {
+    font-size: 34px;
+}
+
+
+button {
+    background-color: #33673B;
+    color: #EFE9F4;
+    border: 0;
+    height: 50px;
+    width: 300px;
+    border-radius: 10px;
+}
