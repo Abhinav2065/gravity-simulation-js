@@ -1,14 +1,25 @@
 const canvas = document.getElementById('gameCanvas')  // Getting the Canvas
 const ctx = canvas.getContext('2d');
 
-let g = 0.2; // Acceleration Due to Gravity(g)
+
+const getG = document.getElementById("g"); // Get Acceleration Due to Graviti from the input tag from the html
+const getVelocityX = document.getElementById("velX"); // Getting the X velocity from the input
+const applyBtn = document.getElementById("applyBtn");
+
+
+
+
+
+
+
+let g = parseFloat(getG.value); // Acceleration Due to Gravity(g)
 
 
 let ball = {
     x: 100,
     y: 0, // 580 max
     radius: 20,
-    velocityX: 10,
+    velocityX: parseInt(getVelocityX.value),
     velocityY: 2,
     color: '#000000'
 };
@@ -59,6 +70,15 @@ function updateBall() {
     ball.y += ball.velocityY;
 }
 
+
+applyBtn.addEventListener('click', function() {
+    g = parseFloat(getG.value);
+    ball.velocityX = parseFloat(getVelocityX.value);
+
+
+    console.log("Applied New Values");
+    
+})
 
 
 gameLoop();
