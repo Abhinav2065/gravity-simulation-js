@@ -5,6 +5,9 @@ const ctx = canvas.getContext('2d');
 const G = 0.2;  // Universal Graitational Constant (G)
 
 
+let timeScale = 0.07; // Makes this fun at 7% of the speed
+
+
 class celistialBody {
     constructor(name, x, y, radii, mass, color, velocityX = 0, velocityY = 0) {   // Used for Making a new Celistrial Body like stars or Planets
         this.name = name;   // Name of the Body
@@ -77,12 +80,12 @@ class celistialBody {
         const accelerationX = totalForceX/this.mass;
         const accelerationY = totalForceY/this.mass;
 
-        this.velocityX += accelerationX;
-        this.velocityY += accelerationY;
+        this.velocityX += accelerationX * timeScale;
+        this.velocityY += accelerationY * timeScale;
 
 
-        this.x += this.velocityX;
-        this.y += this.velocityY;
+        this.x += this.velocityX * timeScale;
+        this.y += this.velocityY * timeScale;
     
 
     }
@@ -117,25 +120,70 @@ const sun = new celistialBody(     // This Creates the Sun
     canvas.width/2,
     canvas.height/2,
     30,                 // Radii of the Sun
-    50000,              // Mass of the Sun 
+    5000000,              // Mass of the Sun 
     '#ffd900ff'       // Color of the Sun
 )
 
 solarSystem.push(sun);
 
+
 const earth = new celistialBody(
     "Earth",
-    canvas.width/2 + 250,
-    canvas.height/2,
+    canvas.width/2 ,
+    canvas.height/2 + 230,
     12,
     100,
     'rgba(0, 94, 255, 1)',
-    0,
-    4.47
+    orbitalVelocity(230),
+    0
 )
 
-
 solarSystem.push(earth);
+
+const mercury = new celistialBody(
+    "Mercury",
+    canvas.width/2 - 80,
+    canvas.height/2, 
+    6,
+    60,
+    '#d7850aff',
+    0,
+    orbitalVelocity(80)
+)
+
+solarSystem.push(mercury)
+
+const venus = new celistialBody(
+    "Venus",
+    canvas.width/2 - 140,
+    canvas.height/2, 
+    6,
+    10,
+    '#bc8c45ff',
+    0,
+    orbitalVelocity(140)
+)
+
+solarSystem.push(venus)
+
+
+
+const mars = new celistialBody(
+    "mars",
+    canvas.width/2 - 260,
+    canvas.height/2 ,
+    10,
+    80,
+    'rgba(168, 159, 3, 1)',
+    0,
+    orbitalVelocity(260)
+)
+
+solarSystem.push(mars);
+
+
+
+
 
 
 function gameLoop() {
@@ -150,6 +198,11 @@ function gameLoop() {
 
     requestAnimationFrame(gameLoop);
 
+}
+
+
+function orbitalVelocity(orbitalRadius) {
+    return Math.sqrt(G*sun.mass/orbitalRadius);
 }
 
 
