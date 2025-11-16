@@ -4,8 +4,16 @@ const ctx = canvas.getContext('2d');
 
 const G = 0.2;  // Universal Graitational Constant (G)
 
+const astroidBeltInnerRadius = 300;
+const astroidBeltOuterRadius = 400;
+
+
+
 
 let timeScale = 0.07; // Makes this fun at 7% of the speed
+
+
+
 
 
 class celistialBody {
@@ -180,6 +188,7 @@ const mars = new celistialBody(
 )
 
 solarSystem.push(mars);
+
 
 
 
