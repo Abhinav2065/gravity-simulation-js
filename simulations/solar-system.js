@@ -190,6 +190,7 @@ function gameLoop() {
     ctx.fillStyle = '#000'
     ctx.fillRect(0,0, canvas.width, canvas.height);
 
+    drawStars(stars);
 
     solarSystem.forEach(body => {
         body.update(solarSystem);
@@ -204,6 +205,42 @@ function gameLoop() {
 function orbitalVelocity(orbitalRadius) {
     return Math.sqrt(G*sun.mass/orbitalRadius);
 }
+
+
+function createStars(numOfStars) {
+    const stars = [];
+
+    for (let i = 0; i<numOfStars; i++) {
+        stars.push({
+            x: Math.random()*canvas.width,
+            y: Math.random()* canvas.height,
+            size: Math.random()* 2 + 0.5,
+            brightness: Math.random() * 0.8 + 0.2,
+            twinkleSpeed: Math.random()* 0.5 + 0.2
+    });
+    }
+
+
+    return stars;
+}
+
+
+function drawStars(stars) {
+    stars.forEach(star => {
+        const twinkle = Math.sin(Date.now() *star.twinkleSpeed)*0.3 + 0.7;
+        const brightness = star.brightness * twinkle;
+
+
+        ctx.fillStyle = `rgba(255,255,255, ${brightness})`;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, 2*Math.PI);
+        ctx.fill();
+
+
+    })
+}
+
+let stars = createStars(100);
 
 
 gameLoop();
