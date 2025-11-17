@@ -21,9 +21,14 @@ There is also another simulation which shows you how a object acts under gravity
 Here are some pictures of the simulation
 
 1. Bouncing Ball
+<img width="1845" height="996" alt="image" src="https://github.com/user-attachments/assets/0b9d0380-b381-4a45-a7f3-2b0056ca3c98" />
 
 
 2. 2d Solar System
 
+<img width="1845" height="996" alt="image" src="https://github.com/user-attachments/assets/c1413e33-5c48-4bf3-8ff4-dd348b292018" />
+
 
 3. 3d Solar System
+
+<img width="1845" height="996" alt="image" src="https://github.com/user-attachments/assets/fc22ed18-0558-492e-9a84-bc2984d0746d" />
