@@ -16,3 +16,14 @@ There is also another simulation which shows you how a object acts under gravity
     then there is a variable named solarsystem[] which stores all the stars and planets that are there currently and on which we can easily add more planets and see how that effects everything.
 
 
+
+
+Here are some pictures of the simulation
+
+1. Bouncing Ball
+
+
+2. 2d Solar System
+
+
+3. 3d Solar System
